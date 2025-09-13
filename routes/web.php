@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\HalamanController; //controller wajib di import
+use App\Http\Controllers\UmurController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -49,4 +52,25 @@ Route::prefix('training')->group(function () {
     });
 
 });
+
+
+// memanggil function pada controller 
+Route::get('halaman-index', [HalamanController::class, 'index'])-> name('halaman.index');
+
+// controller resource
+Route::resource('barang', BarangController::class);
+
+// jika ditambah fuction
+Route::get('halaman-tambahan', [BarangController::class, 'tambahan'])-> name('halaman.tambahan');
+
+// route untuk umur
+Route::get('form-umur', [UmurController::class, 'formUmur'])
+->name('form.umur');
+
+Route::get('success', [UmurController::class, 'success'])
+->name('success');
+
+Route::post('proses', [UmurController::class,'prosesUmur'])
+->name('prosses');
+
 
