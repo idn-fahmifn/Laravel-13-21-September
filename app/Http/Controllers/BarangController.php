@@ -12,7 +12,12 @@ class BarangController extends Controller
     public function index()
     {
         //code untuk halaman utama
-        return "Ini adalah halaman index dari barang";
+
+        $judul = "Data Barang";
+        $deskripsi = "Ini adalah halaman Data Barang";
+
+        return view('halaman.barang', 
+        compact('judul', 'deskripsi'));
     }
 
     /**
