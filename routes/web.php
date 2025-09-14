@@ -56,7 +56,8 @@ Route::prefix('training')->group(function () {
 
 // memanggil function pada controller 
 Route::get('halaman-index', [HalamanController::class, 'index'])-> name('halaman.index');
-Route::get('halaman-barang', [HalamanController::class, 'barang']);
+Route::get('halaman-barang', [HalamanController::class, 'barang'])->name('index.barang');
+Route::get('halaman-barang/{param}', [HalamanController::class, 'detail'])->name('index.detail');
 
 // controller resource
 Route::resource('barang', BarangController::class);
