@@ -3,7 +3,6 @@
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\HalamanController; //controller wajib di import
 use App\Http\Controllers\UmurController;
-use App\Http\Middleware\UmurMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -69,7 +68,7 @@ Route::get('form-umur', [UmurController::class, 'formUmur'])
 ->name('form.umur');
 
 Route::get('success', [UmurController::class, 'success'])
-->middleware(UmurMiddleware::class)
+->middleware('umur')
 ->name('success');
 
 Route::post('proses', [UmurController::class,'prosesUmur'])

@@ -8,6 +8,11 @@
 </head>
 <body>
     <h1>Form Input Umur</h1>
+
+    @if (session('failed'))
+        <span style="color: #ff0000">Gagal! {{session('failed')}}</span>
+    @endif
+
     <form action="{{route('prosses')}}" method="post">
         @csrf
         <div class="">
